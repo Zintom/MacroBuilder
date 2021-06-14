@@ -80,18 +80,13 @@ namespace MacroBuilder
         /// window.
         /// </param>
         /// <param name="fsModifiers">
-        /// The keys that must be pressed in combination with the key specified by the
-        /// uVirtKey parameter in order to generate the WM_HOTKEY message. The fsModifiers
-        /// parameter can be a combination of the following values.
-        /// MOD_ALT     0x0001
-        /// MOD_CONTROL 0x0002
-        /// MOD_SHIFT   0x0004
-        /// MOD_WIN     0x0008
+        /// The keys that must be pressed in combination with the primary <paramref name="key"/> 
+        /// in order to generate the WM_HOTKEY message.
         /// </param>
         /// <param name="vk">The virtual-key code of the hot key.</param>
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern bool RegisterHotKey(IntPtr hWnd, int id,
-            KeyModifiers fsModifiers, Keys vk);
+            KeyModifiers fsModifiers, Keys key);
 
         /// <summary>
         /// Frees a hot key previously registered by the calling thread.
